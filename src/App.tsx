@@ -183,7 +183,7 @@ export default function App() {
         )}
       </AnimatePresence>
       {/* 1. BARRA DE ALERTA */}
-      <div className="bg-red-600 text-white text-center py-2 font-bold text-sm uppercase tracking-wider sticky top-0 z-50 shadow-lg">
+      <div className="bg-purple-600 text-white text-center py-2 font-bold text-sm uppercase tracking-wider sticky top-0 z-50 shadow-lg">
         ⚠️ Desconto só Hoje - Promoção válida até <span id="data-promocao">{promoDate}</span>
       </div>
 
