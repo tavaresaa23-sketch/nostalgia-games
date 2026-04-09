@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Orbitron:wght@700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-orbitron: "Orbitron", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-white font-sans selection:bg-yellow-400 selection:text-black;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+  }
+
+  .glow-yellow {
+    box-shadow: 0 0 40px rgba(250, 204, 21, 0.2);
+  }
+}
+
+/* Swiper Custom Styles */
+.swiper-pagination-bullet {
+  @apply bg-white opacity-50;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-yellow-400 opacity-100;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-yellow-400 drop-shadow-lg;
+}
