@@ -36,6 +36,32 @@ export default function App() {
   const [pixProgress, setPixProgress] = useState(0);
   const [showPix, setShowPix] = useState(false);
   const [formData, setFormData] = useState({ nome: '', email: '' });
+  const [currentNotification, setCurrentNotification] = useState<{ name: string; time: string } | null>(null);
+
+  const notifications = [
+    { name: "Ricardo S.", time: "há 2 minutos" },
+    { name: "Ana Paula", time: "há 5 minutos" },
+    { name: "Marcos Oliveira", time: "há 1 minuto" },
+    { name: "Juliana Costa", time: "agora mesmo" },
+    { name: "Felipe Almeida", time: "há 3 minutos" },
+    { name: "Beatriz Santos", time: "há 4 minutos" }
+  ];
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setCurrentNotification(notifications[index]);
+      
+      // Hide after 5 seconds
+      setTimeout(() => {
+        setCurrentNotification(null);
+      }, 5000);
+
+      index = (index + 1) % notifications.length;
+    }, 12000); // Show every 12 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Refs for scrolling
   const checkoutRef = useRef<HTMLDivElement>(null);
@@ -122,6 +148,29 @@ export default function App() {
 
   return (
     <div className="min-h-screen">
+      {/* NOTIFICAÇÃO DE COMPRA */}
+      <AnimatePresence>
+        {currentNotification && (
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            className="fixed bottom-6 left-6 z-[100] bg-white text-slate-900 p-4 rounded-2xl shadow-2xl border border-slate-200 flex items-center gap-4 max-w-[280px] md:max-w-sm"
+          >
+            <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+              <CheckCircle2 className="text-slate-900 w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-sm font-bold leading-tight">
+                {currentNotification.name} <span className="font-normal text-slate-600">acabou de adquirir o acesso vitalício!</span>
+              </p>
+              <p className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider font-bold">
+                {currentNotification.time}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* 1. BARRA DE ALERTA */}
       <div className="bg-red-600 text-white text-center py-2 font-bold text-sm uppercase tracking-wider sticky top-0 z-50 shadow-lg">
         ⚠️ Desconto só Hoje - Promoção válida até <span id="data-promocao">{promoDate}</span>
@@ -271,17 +320,17 @@ export default function App() {
             ))}
           </Swiper>
           
-          <div className="mt-8 flex flex-col items-center gap-8">
+          <div className="mt-8 flex flex-col items-center gap-8 max-w-3xl mx-auto">
             <img 
               src="https://i.postimg.cc/CK66tVCJ/cetalouco-(2).gif" 
               alt="Cetalouco GIF" 
-              className="max-w-full h-auto rounded-2xl border-2 border-white/10 shadow-2xl"
+              className="w-full h-auto rounded-2xl border-2 border-white/10 shadow-2xl"
               referrerPolicy="no-referrer"
             />
             <img 
               src="https://i.postimg.cc/ZRr9DpX8/goku.gif" 
               alt="Goku GIF" 
-              className="max-w-full h-auto rounded-2xl border-2 border-white/10 shadow-2xl"
+              className="w-full h-auto rounded-2xl border-2 border-white/10 shadow-2xl"
               referrerPolicy="no-referrer"
             />
           </div>
