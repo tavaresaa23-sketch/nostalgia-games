@@ -30,12 +30,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const notifications = [
-  { name: "Ricardo S.", time: "há 2 minutos" },
-  { name: "Ana Paula", time: "há 5 minutos" },
-  { name: "Marcos Oliveira", time: "há 1 minuto" },
-  { name: "Juliana Costa", time: "agora mesmo" },
-  { name: "Felipe Almeida", time: "há 3 minutos" },
-  { name: "Beatriz Santos", time: "há 4 minutos" }
+  { name: "Ricardo S.", time: "há 2 minutos", avatar: "https://randomuser.me/api/portraits/men/32.jpg" },
+  { name: "Ana Paula", time: "há 5 minutos", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
+  { name: "Marcos Oliveira", time: "há 1 minuto", avatar: "https://randomuser.me/api/portraits/men/68.jpg" },
+  { name: "Juliana Costa", time: "agora mesmo", avatar: "https://randomuser.me/api/portraits/women/65.jpg" },
+  { name: "Felipe Almeida", time: "há 3 minutos", avatar: "https://randomuser.me/api/portraits/men/45.jpg" },
+  { name: "Beatriz Santos", time: "há 4 minutos", avatar: "https://randomuser.me/api/portraits/women/33.jpg" }
 ];
 
 export default function App() {
@@ -46,7 +46,7 @@ export default function App() {
   const [pixProgress, setPixProgress] = useState(0);
   const [showPix, setShowPix] = useState(false);
   const [formData, setFormData] = useState({ nome: '', email: '' });
-  const [currentNotification, setCurrentNotification] = useState<{ name: string; time: string } | null>(null);
+  const [currentNotification, setCurrentNotification] = useState<{ name: string; time: string; avatar: string } | null>(null);
 
   useEffect(() => {
     let index = 0;
@@ -166,16 +166,24 @@ export default function App() {
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
-            className="fixed bottom-6 left-6 z-[100] bg-white text-slate-900 p-4 rounded-2xl shadow-2xl border border-slate-200 flex items-center gap-4 max-w-[280px] md:max-w-sm"
+            className="fixed bottom-6 left-6 z-[100] bg-white text-slate-900 p-3 rounded-2xl shadow-2xl border border-slate-200 flex items-center gap-3 max-w-[280px] md:max-w-sm"
           >
-            <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-              <CheckCircle2 className="text-slate-900 w-6 h-6" />
+            <div className="relative flex-shrink-0">
+              <img 
+                src={currentNotification.avatar} 
+                alt={currentNotification.name} 
+                className="w-12 h-12 rounded-full object-cover border-2 border-yellow-400 shadow-sm"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full p-0.5 border-2 border-white">
+                <CheckCircle2 className="text-white w-3 h-3" />
+              </div>
             </div>
             <div>
               <p className="text-sm font-bold leading-tight">
-                {currentNotification.name} <span className="font-normal text-slate-600">acabou de adquirir o acesso vitalício!</span>
+                {currentNotification.name} <span className="font-normal text-slate-600">acabou de adquirir o acesso!</span>
               </p>
-              <p className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider font-bold">
+              <p className="text-[10px] text-slate-400 mt-0.5 uppercase tracking-wider font-bold">
                 {currentNotification.time}
               </p>
             </div>
