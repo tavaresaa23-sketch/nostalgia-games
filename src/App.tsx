@@ -514,6 +514,54 @@ export default function App() {
         </div>
       </section>
 
+      {/* 7.5 BONUS SECTION */}
+      <section className="py-24 px-4 bg-slate-900 border-t border-white/5 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase italic text-yellow-400">BONUS pack + 90 Mil hqs :</h2>
+            <p className="text-slate-400 font-bold tracking-widest uppercase text-sm">Exclusivo para quem adquirir hoje</p>
+          </div>
+
+          <div className="relative">
+            <Swiper
+              modules={[Autoplay, Pagination, Navigation]}
+              spaceBetween={20}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              pagination={{ clickable: true }}
+              navigation={true}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="pb-12"
+            >
+              {[
+                "https://i.ibb.co/whJvd2bT/88d24d20-5754-4f32-a6c5-2c9ed17b3b4f-66ff4d40ef5a8ad15e5ce47801f856f0.png",
+                "https://i.ibb.co/Vc3QTX2M/Captura-de-tela-2026-04-09-015508-1.png",
+                "https://i.ibb.co/RktmKpHD/Captura-de-tela-2026-04-09-015134-1.png",
+                "https://i.ibb.co/tT0PVqLp/Captura-de-tela-2026-04-09-021419-1.png"
+              ].map((src, idx) => (
+                <SwiperSlide key={idx}>
+                  <div className="rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl bg-slate-800 aspect-[4/5]">
+                    <img 
+                      src={src} 
+                      alt={`Bonus HQ ${idx + 1}`} 
+                      className="w-full h-full object-cover" 
+                      referrerPolicy="no-referrer" 
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </section>
+
       {/* 8. FAQ */}
       <section className="py-24 px-4 bg-slate-900 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
