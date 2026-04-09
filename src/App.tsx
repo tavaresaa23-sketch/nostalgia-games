@@ -49,18 +49,28 @@ export default function App() {
 
   useEffect(() => {
     let index = 0;
+    // Mostrar a primeira logo após 3 segundos para o usuário ver que funciona
+    const initialDelay = setTimeout(() => {
+      setCurrentNotification(notifications[index]);
+      setTimeout(() => setCurrentNotification(null), 6000);
+      index = (index + 1) % notifications.length;
+    }, 3000);
+
     const interval = setInterval(() => {
       setCurrentNotification(notifications[index]);
       
-      // Hide after 5 seconds
+      // Esconder após 6 segundos
       setTimeout(() => {
         setCurrentNotification(null);
-      }, 5000);
+      }, 6000);
 
       index = (index + 1) % notifications.length;
-    }, 12000); // Show every 12 seconds
+    }, 15000); // Mostrar a cada 15 segundos
 
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(initialDelay);
+      clearInterval(interval);
+    };
   }, []);
 
   // Refs for scrolling
