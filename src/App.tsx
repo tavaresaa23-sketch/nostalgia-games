@@ -1,3 +1,4 @@
+// Versão: 1.0.5 - Ajuste de Imagens e Notificações
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Gamepad2, 
@@ -28,6 +29,15 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+const notifications = [
+  { name: "Ricardo S.", time: "há 2 minutos" },
+  { name: "Ana Paula", time: "há 5 minutos" },
+  { name: "Marcos Oliveira", time: "há 1 minuto" },
+  { name: "Juliana Costa", time: "agora mesmo" },
+  { name: "Felipe Almeida", time: "há 3 minutos" },
+  { name: "Beatriz Santos", time: "há 4 minutos" }
+];
+
 export default function App() {
   const [promoDate, setPromoDate] = useState('');
   const [timer, setTimer] = useState(15 * 60);
@@ -37,15 +47,6 @@ export default function App() {
   const [showPix, setShowPix] = useState(false);
   const [formData, setFormData] = useState({ nome: '', email: '' });
   const [currentNotification, setCurrentNotification] = useState<{ name: string; time: string } | null>(null);
-
-  const notifications = [
-    { name: "Ricardo S.", time: "há 2 minutos" },
-    { name: "Ana Paula", time: "há 5 minutos" },
-    { name: "Marcos Oliveira", time: "há 1 minuto" },
-    { name: "Juliana Costa", time: "agora mesmo" },
-    { name: "Felipe Almeida", time: "há 3 minutos" },
-    { name: "Beatriz Santos", time: "há 4 minutos" }
-  ];
 
   useEffect(() => {
     let index = 0;
