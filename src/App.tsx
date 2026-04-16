@@ -16,7 +16,10 @@ import {
   Quote, 
   ChevronDown,
   CheckCircle2,
-  Clock
+  Clock,
+  User,
+  Mail,
+  BookOpen
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -278,12 +281,12 @@ export default function App() {
           <div className="flex flex-col items-center w-full max-w-2xl mx-auto mb-0">
             <button 
               onClick={() => checkoutRef.current?.scrollIntoView({ behavior: 'smooth' })}
-              className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-400 to-emerald-600 text-white font-black text-2xl md:text-3xl py-6 px-8 md:px-12 rounded-2xl shadow-[0_0_40px_rgba(52,211,153,0.8)] border-b-4 border-green-800 transition-all uppercase tracking-tight w-full mb-4 hover:scale-105 active:scale-95"
+              className="w-full py-6 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-black text-2xl md:text-3xl rounded-2xl shadow-[0_10px_30px_rgba(250,204,21,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 uppercase tracking-tighter border-b-4 border-yellow-700 mb-4"
             >
-              QUERO OS 9 MIL JOGOS ! PS2 e PS3
-              <ArrowRight className="w-8 h-8 animate-pulse" />
+              <Zap className="w-8 h-8 fill-current" />
+              GERAR MEU ACESSO AGORA
             </button>
-            <div className="flex items-center gap-2 mb-2 text-emerald-500">
+            <div className="flex items-center gap-2 mb-2 text-yellow-400">
               <Lock className="w-4 h-4" />
               <span className="font-bold uppercase tracking-widest text-[11px] md:text-xs">Compra Segura</span>
             </div>
@@ -515,49 +518,153 @@ export default function App() {
       </section>
 
       {/* 7.5 BONUS SECTION */}
+      <section className="py-24 px-4 bg-slate-950 border-t border-white/5 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/20 border border-blue-500/30 rounded-[2.5rem] p-8 md:p-16 shadow-[0_0_50px_rgba(37,99,235,0.1)] relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[100px] -z-10"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/10 blur-[100px] -z-10"></div>
+            
+            <div className="relative z-10 mb-12">
+              <div className="max-w-3xl mx-auto bg-blue-600 rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(37,99,235,0.3)] border-b-8 border-blue-800 text-center transform -rotate-1">
+                <div className="inline-block bg-yellow-400 text-black text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 shadow-lg">
+                  Oferta Especial
+                </div>
+                <h2 className="text-3xl md:text-6xl font-black mb-4 uppercase italic text-white leading-tight">
+                  BONUS pack <br/>
+                  <span className="text-yellow-400 drop-shadow-lg">+ 90 Mil hqs :</span>
+                </h2>
+                <p className="text-blue-100 font-bold tracking-widest uppercase text-xs md:text-sm mt-4">
+                  Exclusivo para quem adquirir o acesso hoje
+                </p>
+              </div>
+            </div>
+
+            <div className="relative z-10">
+              <Swiper
+                modules={[Autoplay, Pagination, Navigation]}
+                spaceBetween={24}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                }}
+                pagination={{ clickable: true }}
+                navigation={true}
+                breakpoints={{
+                  640: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                }}
+                className="pb-12 !overflow-visible"
+              >
+                {[
+                  "https://hqflix.com.br/assets/62qfoh8l-BOMzwSxp.jpeg",
+                  "https://hqflix.com.br/assets/7m4OhsQl-DosaG9fO.jpeg",
+                  "https://hqflix.com.br/assets/5j01ylml-CmL9U4zd.jpeg",
+                  "https://hqflix.com.br/assets/vFYDdPgl-BDRnBjow.jpeg",
+                  "https://hqflix.com.br/assets/VpBgznGl-DfwuiczO.jpeg",
+                  "https://hqflix.com.br/assets/oAvrrQWl-DZj4Fcnu.jpeg",
+                  "https://hqflix.com.br/assets/PcK5vXnl-ggADHpFK.jpeg",
+                  "https://hqflix.com.br/assets/RQxjHl8l-ClQr0cai.jpeg",
+                  "https://hqflix.com.br/assets/ARxNmB9l-DpuyWbdn.jpeg",
+                  "https://hqflix.com.br/assets/TUHhId7l-BdmR6Fi1.jpeg",
+                  "https://hqflix.com.br/assets/HWXAQUMl-CUIlvEJa.jpeg",
+                  "https://img.olx.com.br/images/89/891347709120598.jpg",
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbbFWLVCZntDHcoefM2JgwjQCAQYI5Um-0qg&s",
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Y9MGv2ioTvb4HsKHdKqmkW99cFd5yxqqwg&s",
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONomPEA4DjcMjgRwLoyPomcocPj_yRTBueg&s",
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3THzteTVVNfLr6eNvywttt4vtQrkk2Ks1zAEupUG_Gw&s",
+                  "https://www.sweetlicious.net/wp-content/uploads/2025/10/turma-do-chaves-porno-5.jpg"
+                ].map((src, idx) => (
+                  <SwiperSlide key={idx}>
+                    <motion.div 
+                      whileHover={{ y: -10 }}
+                      className="rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-2xl bg-slate-800 aspect-[4/5] group relative"
+                    >
+                      <img 
+                        src={src} 
+                        alt={`Bonus HQ ${idx + 1}`} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                        referrerPolicy="no-referrer" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span className="text-white font-bold text-sm uppercase tracking-wider">Visualizar Conteúdo</span>
+                      </div>
+                    </motion.div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7.6 LIVRO DE OURO BONUS */}
       <section className="py-24 px-4 bg-slate-900 border-t border-white/5 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase italic text-yellow-400">BONUS pack + 90 Mil hqs :</h2>
-            <p className="text-slate-400 font-bold tracking-widest uppercase text-sm">Exclusivo para quem adquirir hoje</p>
-          </div>
-
-          <div className="relative">
-            <Swiper
-              modules={[Autoplay, Pagination, Navigation]}
-              spaceBetween={20}
-              slidesPerView={1}
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              pagination={{ clickable: true }}
-              navigation={true}
-              breakpoints={{
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-              }}
-              className="pb-12"
-            >
-              {[
-                "https://i.ibb.co/whJvd2bT/88d24d20-5754-4f32-a6c5-2c9ed17b3b4f-66ff4d40ef5a8ad15e5ce47801f856f0.png",
-                "https://i.ibb.co/Vc3QTX2M/Captura-de-tela-2026-04-09-015508-1.png",
-                "https://i.ibb.co/RktmKpHD/Captura-de-tela-2026-04-09-015134-1.png",
-                "https://i.ibb.co/tT0PVqLp/Captura-de-tela-2026-04-09-021419-1.png"
-              ].map((src, idx) => (
-                <SwiperSlide key={idx}>
-                  <div className="rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl bg-slate-800 aspect-[4/5]">
-                    <img 
-                      src={src} 
-                      alt={`Bonus HQ ${idx + 1}`} 
-                      className="w-full h-full object-cover" 
-                      referrerPolicy="no-referrer" 
-                    />
+          <div className="bg-gradient-to-br from-yellow-900/20 to-yellow-800/10 border border-yellow-500/30 rounded-[2.5rem] p-8 md:p-16 shadow-[0_0_50px_rgba(250,204,21,0.05)] relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/5 blur-[100px] -z-10"></div>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative order-2 md:order-1">
+                <motion.div 
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative z-10"
+                >
+                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 p-1 rounded-[2.5rem] shadow-[0_30px_60px_rgba(250,204,21,0.3)]">
+                    <div className="bg-slate-900 rounded-[2.3rem] overflow-hidden">
+                      <img 
+                        src="https://i.ibb.co/WvGfX1SD/Captura-de-tela-2026-03-09-005954.png" 
+                        alt="Livro de Ouro" 
+                        className="w-full h-auto opacity-50 grayscale hover:grayscale-0 transition-all duration-700"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-slate-900/60 backdrop-blur-sm">
+                        <BookOpen className="w-20 h-20 text-yellow-400 mb-6" />
+                        <h3 className="text-3xl font-black text-white uppercase italic leading-tight">
+                          O LIVRO DE OURO <br/>
+                          <span className="text-yellow-400">DOS CÓDIGOS</span>
+                        </h3>
+                        <div className="mt-6 bg-yellow-400 text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
+                          PDF EXCLUSIVO
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                </motion.div>
+                {/* Decorative elements */}
+                <div className="absolute -top-10 -left-10 w-32 h-32 bg-yellow-400/10 blur-3xl rounded-full"></div>
+                <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-yellow-400/10 blur-3xl rounded-full"></div>
+              </div>
+
+              <div className="order-1 md:order-2">
+                <div className="inline-block bg-yellow-400/10 text-yellow-400 text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 border border-yellow-400/20">
+                  Bônus #2 Liberado
+                </div>
+                <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase italic text-white leading-tight">
+                  CHEGA DE <span className="text-yellow-400">MORRER!</span>
+                </h2>
+                <p className="text-xl text-slate-400 leading-relaxed mb-8">
+                  Leve de graça o nosso <strong className="text-white">E-book Digital</strong> com os códigos secretos, macetes e truques dos <strong className="text-yellow-400">100 jogos mais populares</strong> do pack.
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    "Vida e Munição Infinita",
+                    "Personagens Desbloqueados",
+                    "Fases e Carros Secretos",
+                    "Dinheiro Infinito nos Games"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-slate-300 font-bold">
+                      <div className="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center flex-shrink-0">
+                        <Zap className="w-3 h-3 text-black fill-current" />
+                      </div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -593,108 +700,125 @@ export default function App() {
       </section>
 
       {/* 9. CHECKOUT SECTION */}
-      <section id="oferta" ref={checkoutRef} className="py-16 px-4 bg-grid border-t border-white/5 flex justify-center">
-        <div className="w-full max-w-[420px] bg-slate-900 rounded-2xl border border-emerald-500/40 shadow-[0_0_40px_rgba(16,185,129,0.1)] p-6 relative overflow-hidden">
-          <h1 className="text-center font-orbitron text-2xl font-black tracking-widest mb-6 text-white uppercase">
-            RETRO <span className="text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.6)]">GAMES</span>
+      <section id="oferta" ref={checkoutRef} className="py-24 px-4 bg-grid border-t border-white/5 flex justify-center relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        {/* Container com Borda Amarela Brilhante */}
+        <div className="w-full max-w-[450px] relative group">
+          {/* Efeito de Brilho Externo (Aura) */}
+          <div className="absolute -inset-1.5 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 rounded-[2.7rem] blur-md opacity-40 animate-pulse"></div>
+          
+          {/* O Bloco de Checkout */}
+          <div className="relative w-full bg-slate-900/95 backdrop-blur-2xl rounded-[2.5rem] border-2 border-yellow-400 shadow-[0_0_40px_rgba(250,204,21,0.4)] p-8 z-10">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black px-6 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">
+              Oferta por Tempo Limitado
+            </div>
+
+          <h1 className="text-center font-orbitron text-2xl font-black tracking-widest mb-8 text-white uppercase mt-4">
+            RETRO <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.4)]">GAMES</span>
           </h1>
 
-          <div className="relative rounded-xl overflow-hidden border border-emerald-500/30 shadow-lg mb-6">
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl mb-8 group">
             <img 
               src="https://i.ibb.co/WvGfX1SD/Captura-de-tela-2026-03-09-005954.png" 
               alt="Retro Games" 
-              className="w-full h-[180px] object-cover"
+              className="w-full h-[200px] object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+            <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+              <div>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Acesso Vitalício</p>
+                <p className="text-white font-black uppercase italic">Pack Premium</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-lg border border-white/20">
+                <span className="text-yellow-400 font-black text-sm">9K+ JOGOS</span>
+              </div>
+            </div>
           </div>
 
-          <p className="text-sm text-slate-400 leading-relaxed mb-4">
-            Acesso vitalício a todas as funcionalidades e biblioteca completa de jogos clássicos.
-          </p>
-
-          <ul className="space-y-2.5 mb-5">
+          <ul className="space-y-4 mb-8">
             {[
-              "Pagamento 100% Seguro",
-              "Acesso imediato após aprovação",
-              "Suporte prioritário 24/7"
+              "Pagamento 100% Seguro via PIX",
+              "Acesso imediato no seu E-mail",
+              "BÔNUS: 90 Mil HQs Digitais",
+              "BÔNUS: Livro de Ouro dos Códigos",
+              "Suporte VIP via WhatsApp"
             ].map((benefit, i) => (
-              <li key={i} className="flex items-center gap-2.5 text-sm font-medium text-white">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <li key={i} className="flex items-center gap-3 text-sm font-bold text-slate-300">
+                <div className="w-5 h-5 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle2 className="w-3 h-3 text-yellow-400" />
+                </div>
                 {benefit}
               </li>
             ))}
           </ul>
 
-          <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-lg px-4 py-2.5 mb-4 text-sm font-semibold text-emerald-400">
-            <motion.div animate={{ opacity: [1, 0.7, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-              <Monitor className="w-4 h-4" />
-            </motion.div>
-            <span>{socialCount} pessoas comprando agora</span>
-          </div>
-
-          <motion.div 
-            animate={{ scale: [1, 1.02, 1] }}
-            transition={{ duration: 1, repeat: Infinity }}
-            className="flex items-center justify-center gap-2 bg-slate-800 rounded-lg py-3 mb-5"
-          >
-            <Clock className="w-4 h-4 text-purple-400" />
-            <span className="text-sm text-slate-400">Oferta termina em:</span>
-            <span className="font-orbitron font-bold text-lg text-purple-400">{formatTime(timer)}</span>
-          </motion.div>
-
-          <div className="text-center mb-5">
-            <div className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Total a pagar</div>
-            <div className="text-sm text-slate-500 line-through">R$ 49,00</div>
-            <div className="font-orbitron text-4xl font-black text-emerald-400 drop-shadow-[0_0_15px_rgba(52,211,153,0.4)]">R$ 19,90</div>
-          </div>
-
-          <div className="mb-6">
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-2">
-              <Monitor className="w-4 h-4 text-emerald-400" />
-              <span><strong>10</strong> de 20 acessos vendidos</span>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center gap-2 text-yellow-400">
+                <Monitor className="w-4 h-4 animate-pulse" />
+                <span className="text-xs font-black uppercase tracking-wider">{socialCount} comprando agora</span>
+              </div>
+              <div className="flex items-center gap-2 text-purple-400">
+                <Clock className="w-4 h-4" />
+                <span className="font-orbitron font-bold text-sm">{formatTime(timer)}</span>
+              </div>
             </div>
-            <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
-              <div className="h-full w-1/2 bg-gradient-to-r from-emerald-400 to-purple-500 rounded-full"></div>
+
+            <div className="text-center">
+              <span className="text-[10px] uppercase font-black text-slate-500 tracking-[0.2em] block mb-1">De R$ 49,90 por apenas</span>
+              <div className="flex items-center justify-center gap-3">
+                <span className="text-4xl md:text-5xl font-black text-white tracking-tighter">R$ 19,90</span>
+                <div className="bg-yellow-400 text-black text-[10px] font-black px-2 py-1 rounded uppercase">60% OFF</div>
+              </div>
             </div>
           </div>
 
-          <div className="space-y-4">
-            <div className="space-y-1.5">
-              <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500">Seu Nome</label>
-              <input 
-                type="text" 
-                placeholder="Ex: João da Silva"
-                className="w-full bg-slate-800 border border-emerald-500/20 rounded-lg px-4 py-3 text-sm text-white outline-none focus:border-emerald-400 transition-colors"
-                value={formData.nome}
-                onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-              />
+          <div className="space-y-5 mb-8">
+            <div className="space-y-2">
+              <label className="block text-[10px] font-black uppercase tracking-widest text-yellow-400 ml-1">Nome Completo</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <User className="h-5 w-5 text-slate-500 group-focus-within:text-yellow-400 transition-colors" />
+                </div>
+                <input 
+                  type="text" 
+                  placeholder="Como quer ser chamado?"
+                  className="w-full bg-slate-800 border-2 border-white/10 rounded-xl pl-12 pr-5 py-4 text-sm text-white outline-none focus:border-yellow-400 focus:bg-slate-800/80 transition-all placeholder:text-slate-600 shadow-inner"
+                  value={formData.nome}
+                  onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                />
+              </div>
             </div>
-            <div className="space-y-1.5">
-              <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                E-mail <span className="font-normal normal-case">(Onde você vai receber os jogos)</span>
-              </label>
-              <input 
-                type="email" 
-                placeholder="Ex: joao@email.com"
-                className="w-full bg-slate-800 border border-emerald-500/20 rounded-lg px-4 py-3 text-sm text-white outline-none focus:border-emerald-400 transition-colors"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
+            <div className="space-y-2">
+              <label className="block text-[10px] font-black uppercase tracking-widest text-yellow-400 ml-1">Seu Melhor E-mail</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Mail className="h-5 w-5 text-slate-500 group-focus-within:text-yellow-400 transition-colors" />
+                </div>
+                <input 
+                  type="email" 
+                  placeholder="Onde enviaremos seu acesso"
+                  className="w-full bg-slate-800 border-2 border-white/10 rounded-xl pl-12 pr-5 py-4 text-sm text-white outline-none focus:border-yellow-400 focus:bg-slate-800/80 transition-all placeholder:text-slate-600 shadow-inner"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+              </div>
             </div>
           </div>
 
           <button 
             onClick={handleStartPix}
-            className="w-full mt-6 py-4 bg-gradient-to-r from-emerald-400 to-purple-500 text-slate-950 font-orbitron font-bold text-lg rounded-lg shadow-[0_0_30px_rgba(52,211,153,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 uppercase tracking-wider"
+            className="w-full py-5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-black text-xl rounded-2xl shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 uppercase tracking-tighter border-b-4 border-yellow-700"
           >
-            <Lock className="w-5 h-5" />
-            COMPRAR AGORA
+            <Zap className="w-6 h-6 fill-current" />
+            GERAR MEU ACESSO AGORA
           </button>
 
-          <div className="flex items-center justify-center gap-1.5 mt-4 text-[10px] text-slate-500 uppercase tracking-widest font-bold">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            Compra segura e criptografada
+          <div className="flex items-center justify-center gap-2 mt-6 opacity-50">
+            <ShieldCheck className="w-4 h-4" />
+            <span className="text-[10px] uppercase font-bold tracking-widest">Ambiente 100% Seguro</span>
           </div>
 
           {/* PIX Loading State */}
@@ -706,10 +830,10 @@ export default function App() {
                 exit={{ opacity: 0, height: 0 }}
                 className="mt-6 text-center"
               >
-                <p className="text-emerald-400 font-bold mb-2">Gerando pagamento...</p>
-                <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                <p className="text-yellow-400 font-bold mb-2">Gerando pagamento...</p>
+                <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden border border-white/5">
                   <motion.div 
-                    className="h-full bg-emerald-400"
+                    className="h-full bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.5)]"
                     initial={{ width: 0 }}
                     animate={{ width: `${pixProgress}%` }}
                   />
@@ -727,19 +851,19 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-8 flex flex-col items-center text-center"
               >
-                <h3 className="text-emerald-400 font-bold mb-4">Pague via PIX</h3>
-                <div className="bg-white p-3 rounded-xl mb-4">
+                <h3 className="text-yellow-400 font-bold mb-4">Pague via PIX</h3>
+                <div className="bg-white p-3 rounded-xl mb-4 shadow-2xl border border-white/10">
                   <QRCode 
                     value="00020101021126330014br.gov.bcb.pix011103452610977520400005303986540519.905802BR5925RETRO GAMAESCURITIBA PARA6008CURITIBA62070503***63047067" 
                     size={200}
                   />
                 </div>
-                <div className="w-full bg-slate-800 p-3 rounded-lg text-[10px] break-all text-slate-400 border border-emerald-500/20 mb-4">
+                <div className="w-full bg-slate-800 p-3 rounded-lg text-[10px] break-all text-slate-400 border border-white/5 mb-4">
                   00020101021126330014br.gov.bcb.pix011103452610977520400005303986540519.905802BR5925RETRO GAMAESCURITIBA PARA6008CURITIBA62070503***63047067
                 </div>
                 <button 
                   onClick={copyPix}
-                  className="w-full py-3 border border-emerald-400 text-emerald-400 font-bold rounded-lg hover:bg-emerald-400/10 transition-colors mb-2"
+                  className="w-full py-3 border border-yellow-400 text-yellow-400 font-bold rounded-lg hover:bg-yellow-400/10 transition-colors mb-2"
                 >
                   Copiar código PIX
                 </button>
@@ -753,12 +877,13 @@ export default function App() {
             )}
           </AnimatePresence>
         </div>
+      </div>
       </section>
 
       {/* RODAPÉ */}
       <footer className="py-10 flex flex-col items-center text-center text-slate-500 text-xs md:text-sm border-t border-white/5 bg-slate-950">
         <div className="w-full max-w-4xl px-8 md:px-16 mx-auto flex flex-col items-center mb-10">
-          <div className="flex items-center gap-2 mb-2 text-emerald-500">
+          <div className="flex items-center gap-2 mb-2 text-yellow-400">
             <Lock className="w-4 h-4" />
             <span className="font-bold uppercase tracking-widest text-[11px] md:text-xs">Compra Segura</span>
           </div>
